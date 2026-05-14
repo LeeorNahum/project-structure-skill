@@ -3,12 +3,14 @@ name: project-structure-chooser
 description: Choose and normalize opinionated project/repo structure. Use when starting, reorganizing, splitting, or auditing a project; deciding between planning repo, full project root, web/app monorepo, firmware/library repo, artifact snapshot, or event deliverable; or creating the minimum durable files for the chosen shape.
 metadata:
   author: Leeor Nahum
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Project Structure Chooser
 
 Classify the project before creating structure. The right folder shape should make the work easier to inhabit, not just look organized.
+
+Prefer the smallest durable shape that can ship the project. Do not create planning folders, `.gitkeep` placeholders, research directories, or task files just because a project is new.
 
 ## Verdict First
 
@@ -24,6 +26,23 @@ First three tasks: <tasks>
 Then give the folder shape and any caveats.
 
 ## Shapes
+
+### Minimal Artifact Or Package Repo
+
+Use for a single releaseable artifact such as a theme, preset, config package, template, small asset pack, downloadable zip, or other repo where the artifact is the product.
+
+```text
+project-name/
+├── AGENTS.md
+├── README.md
+├── PROJECT.md
+├── <artifact-folder>/
+└── <minimal build/package script if needed>
+```
+
+Only add folders that hold real files now. Skip `TASKS.md`, `docs/`, `research/`, `decisions/`, `resources/`, and `.gitkeep` files unless the user asked for them or the artifact already needs them.
+
+If unsure whether a project is a planning repo or a minimal artifact repo, ask before creating structure. Default to minimal when the immediate goal is "make/publish/install this thing."
 
 ### Small Planning Repo
 
@@ -145,6 +164,8 @@ Every non-trivial project starts with the minimum files that fit its shape.
 
 Do not duplicate facts across files. Update the owning file and link to it.
 
+For minimal artifact repos, keep `PROJECT.md` very short or omit it when `README.md` and `AGENTS.md` already cover the durable facts.
+
 ## First Three Tasks
 
 1. Define one core outcome and one non-goal.
@@ -158,3 +179,4 @@ Do not duplicate facts across files. Update the owning file and link to it.
 - Do not collapse related-but-distinct products into one repo just because they share parts.
 - Keep shape decisions separate from domain implementation details.
 - If a project only needs one subfolder shape, use that shape directly instead of forcing a full product root.
+- Do not over-apply this skill by scaffolding future folders. Structure should prove it is needed by holding real project content.
