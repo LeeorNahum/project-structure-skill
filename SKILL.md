@@ -1,12 +1,12 @@
 ---
-name: project-structure-chooser
+name: project-structure
 description: Choose and normalize opinionated project/repo structure. Use when starting, reorganizing, splitting, or auditing a project; deciding between planning repo, full project root, web/app monorepo, firmware/library repo, artifact snapshot, or event deliverable; or creating the minimum durable files for the chosen shape.
 metadata:
   author: Leeor Nahum
-  version: "1.1.0"
+  version: "2.0.0"
 ---
 
-# Project Structure Chooser
+# Project Structure
 
 Classify the project before creating structure. The right folder shape should make the work easier to inhabit, not just look organized.
 
