@@ -1,0 +1,34 @@
+# Firmware Folder
+
+Use `Firmware/` when a project root contains embedded firmware as a serious surface, especially when the firmware may become its own repo.
+
+Observed pattern:
+
+```text
+Project Name/
+└── Firmware/
+    ├── AGENTS.md
+    └── <Canonical Firmware Repo>/
+```
+
+Inside a standalone PlatformIO firmware repo, a common shape is:
+
+```text
+<canonical-firmware-repo>/
+├── platformio.ini
+├── hardware/
+├── include/
+├── src/
+└── lib/
+```
+
+Use the repo's existing firmware conventions before introducing new ones. If there is a dedicated firmware-configuration skill or repo-local `AGENTS.md`, follow that for board environments, hardware selectors, build flags, provisioning, and version constants.
+
+For a minimal PlatformIO `.gitignore`, start from `assets/gitignore-firmware-platformio.template`, then adjust only for the repo's actual generated files and intentionally tracked editor settings.
+
+Ask before:
+
+- changing board targets or upload defaults
+- changing hardware selectors, pin maps, or firmware identity
+- moving firmware into or out of its own repo
+- adding generated build folders to Git

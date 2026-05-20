@@ -1,16 +1,28 @@
 ---
 name: project-structure
-description: Choose and normalize opinionated project/repo structure. Use when starting, reorganizing, splitting, or auditing a project; deciding between planning repo, full project root, web/app monorepo, firmware/library repo, artifact snapshot, or event deliverable; or creating the minimum durable files for the chosen shape.
+description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, artifact snapshot, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # Project Structure
 
 Classify the project before creating structure. The right folder shape should make the work easier to inhabit, not just look organized.
 
-Prefer the smallest durable shape that can ship the project. Do not create planning folders, `.gitkeep` placeholders, research directories, or task files just because a project is new.
+Prefer the smallest durable shape that can ship the project. Do not create planning folders, `.gitkeep` placeholders, extra directories, or task files just because a project is new.
+
+Use the user's actual project boundary, not the folder that happened to be open. A main workspace folder can be a local control plane for many subprojects without being a publishable repo itself.
+
+## Reference Loading
+
+Read the relevant reference before acting:
+
+- Read `references/workspace-containers.md` when a main folder contains many subfolders/repos, when installing skills as submodules, or when deciding whether the container itself should be Git-controlled.
+- Read `references/repo-boundaries.md` before initializing Git, adding a remote, naming a repo, or deciding whether a subfolder deserves GitHub.
+- Read the matching folder reference before creating one of these folders: `references/folder-planning.md`, `references/folder-web.md`, `references/folder-firmware.md`, `references/folder-devices.md`, or `references/folder-brand.md`.
+
+Use `assets/` only for copyable templates or static resources that are intentionally meant to become files in another project. If an asset is not a close fit, ask before using it.
 
 ## Verdict First
 
@@ -27,6 +39,26 @@ Then give the folder shape and any caveats.
 
 ## Shapes
 
+### Workspace Container / Local Control Plane
+
+Use for a human-readable folder that contains many related subfolders, some of which are independent repos and some of which are local-only work areas.
+
+```text
+Project Name/
+├── AGENTS.md
+├── README.md
+├── .gitignore
+├── .gitmodules
+└── .agents/
+    └── skills/
+```
+
+Default strategy: initialize Git locally only so submodule-installed skills can exist, add no remote by default, and use a deny-all `.gitignore` that tracks only root operating docs, `.gitmodules`, and skill submodule entries.
+
+Do not treat contained folders as publishable just because the container is Git-controlled. Serious subprojects can be their own repos when they pass the canonical naming and publishing boundary.
+
+Do not create content folders in the container example just to suggest future structure. Add folders only after the project proves it needs them.
+
 ### Minimal Artifact Or Package Repo
 
 Use for a single releaseable artifact such as a theme, preset, config package, template, small asset pack, downloadable zip, or other repo where the artifact is the product.
@@ -35,12 +67,11 @@ Use for a single releaseable artifact such as a theme, preset, config package, t
 project-name/
 ├── AGENTS.md
 ├── README.md
-├── PROJECT.md
 ├── <artifact-folder>/
 └── <minimal build/package script if needed>
 ```
 
-Only add folders that hold real files now. Skip `TASKS.md`, `docs/`, `research/`, `decisions/`, `resources/`, and `.gitkeep` files unless the user asked for them or the artifact already needs them.
+Only add folders that hold real files now. Skip `TASKS.md`, `docs/`, `decisions/`, `resources/`, and `.gitkeep` files unless the user asked for them or the artifact already needs them.
 
 If unsure whether a project is a planning repo or a minimal artifact repo, ask before creating structure. Default to minimal when the immediate goal is "make/publish/install this thing."
 
@@ -51,49 +82,45 @@ Use for tiny, early, or spec-only projects.
 ```text
 Project-Plan/
 ├── AGENTS.md
-├── PROJECT.md
+├── README.md
 └── TASKS.md
 ```
 
-Graduate when decisions, research, meetings, code, hardware, or media no longer fit cleanly in root files.
+Graduate when decisions, meetings, code, hardware, or media no longer fit cleanly in root files.
 
 ### Planning Repo
 
-Use when the project is still being designed but already has product/software/hardware/research decisions.
+Use when the project is still being designed but already has product, software, hardware, or decision material.
 
 ```text
 Project-Plan/
 ├── AGENTS.md
-├── PROJECT.md
+├── README.md
 ├── TASKS.md
 ├── docs/
-│   ├── product/
-│   ├── software/
-│   ├── hardware/
-│   ├── research/
-│   └── decisions/
+│   └── <topic>/
 └── meetings/
 ```
 
-`PROJECT.md` owns strategy and scope. `TASKS.md` owns executable state. Stable decisions move into `docs/decisions/`.
+`README.md` owns project purpose, strategy, scope, and human-readable context. `TASKS.md` owns executable state. Topic folders under `docs/` should be created, renamed, split, merged, or removed as the plan evolves.
 
 ### Full Project Root
 
-Use when a project spans multiple serious surfaces such as planning, web/app, firmware, hardware, devices, assets, presentation, research, or public packaging. This is not hardware-only; hardware projects are just the clearest example.
+Use when a project spans multiple serious surfaces such as web/app, firmware, devices, brand assets, planning, or public packaging. This is not hardware-only; hardware projects are just the clearest example.
 
 ```text
 Project Name/
 ├── AGENTS.md
 ├── Planning/
-├── Firmware/
 ├── Web/
+├── Firmware/
 ├── Devices/
-├── Assets/
-├── Presentation/
-└── Research/
+└── Brand/
 ```
 
-Only create folders that correspond to real surfaces. Keep planning, code, devices, media, and presentation artifacts separate. Give serious subprojects their own `AGENTS.md`.
+Only create folders that correspond to real surfaces. Keep planning, code, devices, brand assets, and generated artifacts separate. Give serious subprojects their own `AGENTS.md`.
+
+If the root mainly exists to hold subprojects and shared agent standards, prefer the workspace container shape above.
 
 ### Web/App Monorepo
 
@@ -130,6 +157,8 @@ firmware-library/
 
 Add `TASKS.md` only when the repo needs durable executable state.
 
+When PlatformIO hardware selectors, board environments, local provisioning values, or firmware version flags matter, also use the firmware-specific repository skill if available.
+
 ### Artifact Snapshot
 
 Use for posters, slides, screenshots, CAD exports, 3D prints, media packets, and event deliverables.
@@ -150,21 +179,24 @@ Record source files, final export format, public-safe caption/description, and m
 ## Naming
 
 - Local project roots can be human-readable: `Project Name`.
-- Code repos should use deployable/package slugs: `project-website`, `project-firmware`, `project-skill`.
+- Workspace containers can use the canonical human name and hold mixed local work.
+- Publishable subfolders should usually carry the canonical project/product name plus the surface when useful.
+- Code repos should use deployable/package slugs when they are standalone packages or deployables: `project-website`, `project-firmware`, `project-skill`.
 - Planning repos use `Project-Plan`.
 - Keep old date-stamped folders as snapshots unless current work revives them.
+- Avoid names that only describe a temporary tool, class, assignment, sprint, or process unless that is truly the artifact's identity.
 
 ## First Files
 
 Every non-trivial project starts with the minimum files that fit its shape.
 
 - `AGENTS.md`: durable agent operating rules for any serious repo
-- `PROJECT.md`: canonical purpose, scope, users, and non-goals for planning repos or larger project roots
+- `README.md`: canonical purpose, scope, users, non-goals, setup, and human-readable project context
 - `TASKS.md`: executable state for planning repos or larger active projects, not mandatory for every code repo
 
 Do not duplicate facts across files. Update the owning file and link to it.
 
-For minimal artifact repos, keep `PROJECT.md` very short or omit it when `README.md` and `AGENTS.md` already cover the durable facts.
+For workspace containers, `AGENTS.md` should explain navigation, installed skills, repo boundaries, and local-only expectations. It should not become a diary or an inventory dump.
 
 ## First Three Tasks
 
@@ -180,3 +212,6 @@ For minimal artifact repos, keep `PROJECT.md` very short or omit it when `README
 - Keep shape decisions separate from domain implementation details.
 - If a project only needs one subfolder shape, use that shape directly instead of forcing a full product root.
 - Do not over-apply this skill by scaffolding future folders. Structure should prove it is needed by holding real project content.
+- Do not add a GitHub remote just because Git exists locally.
+- Do not publish non-canonical scratch folders unless the user explicitly confirms the exception.
+- Do not duplicate the same standard across multiple files; put the durable rule in one owner and link to it.

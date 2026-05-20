@@ -1,0 +1,13 @@
+# Ignore everything by default.
+*
+
+# Keep the control-plane files.
+!.gitignore
+!.gitmodules
+!AGENTS.md
+!README.md
+
+# Keep shared agent skills.
+!.agents/
+!.agents/skills/
+!.agents/skills/*/
