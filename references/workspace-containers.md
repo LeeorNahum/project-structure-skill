@@ -25,7 +25,8 @@ Default behavior:
 - install shared local skills under `.agents/skills/` only when the project needs local skill files
 - track `.gitmodules`, skill submodule gitlinks, and a few root operating docs
 - ignore contained project folders by default
-- let serious subprojects own their own Git repos when justified
+- do not initialize Git on surface folders such as `Brand/`, `Planning/`, or `Research/` unless the user explicitly asks
+- let serious **atomic** subfolders own their own Git repos when justified — e.g. `Brand/Assets/<Project> Icon/`, not `Brand/` itself
 - add content folders only when they hold real project material
 
 When creating the parent `.gitignore`, start from `assets/gitignore-workspace-container.template`. The template uses `!.agents/skills/**` so skill submodule gitlinks are not blocked by the deny-all `*` rule.

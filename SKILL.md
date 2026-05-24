@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, artifact snapshot, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.1.1"
+  version: "2.2.0"
 ---
 
 # Project Structure
@@ -180,10 +180,11 @@ Record source files, final export format, public-safe caption/description, and m
 
 - Local project roots can be human-readable: `Project Name`.
 - Workspace containers can use the canonical human name and hold mixed local work.
-- Publishable subfolders should usually carry the canonical project/product name plus the surface when useful.
+- Surface folders (`Brand/`, `Planning/`, `Research/`) organize work locally and are not remote candidates by themselves.
+- Atomic folders carry the canonical project/product name plus a specific scope: `Audiote Icon/`, `Audiote-Plan/`, `audiote-website/`.
 - Code repos should use deployable/package slugs when they are standalone packages or deployables: `project-website`, `project-firmware`, `project-skill`.
 - Planning repos use `Project-Plan`.
-- Keep old date-stamped folders as snapshots unless current work revives them.
+- Do not date-stamp main directories, surface folders, or their direct subdirectories. Use **Artifact Snapshot** folders when a dated deliverable packet must be preserved.
 - Avoid names that only describe a temporary tool, class, assignment, sprint, or process unless that is truly the artifact's identity.
 
 ## First Files
