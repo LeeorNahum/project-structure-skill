@@ -10,4 +10,4 @@
 # Keep shared agent skills.
 !.agents/
 !.agents/skills/
-!.agents/skills/*/
+!.agents/skills/**

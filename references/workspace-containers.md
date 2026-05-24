@@ -28,7 +28,7 @@ Default behavior:
 - let serious subprojects own their own Git repos when justified
 - add content folders only when they hold real project material
 
-When creating the parent `.gitignore`, start from `assets/gitignore-workspace-container.template`.
+When creating the parent `.gitignore`, start from `assets/gitignore-workspace-container.template`. The template uses `!.agents/skills/**` so skill submodule gitlinks are not blocked by the deny-all `*` rule.
 
 ## Local Control Plane Git
 
