@@ -1,34 +1,42 @@
 # AGENTS.md
 
-This repo defines a project-structure skill. Keep it concise, evidence-driven, and free of context leaks.
+Rules for editing the **project-structure** skill. User-facing structure rules live in `SKILL.md` and `references/`.
 
-## Editing Protocol
+## Editing protocol
 
-- Ask before touching each file.
-- After editing a file, stop and ask for review before moving to the next file.
-- Do not encode a structure rule as a default unless it is backed by observed project usage or an explicit preference.
-- Clearly separate observed patterns from proposed patterns.
-- Prefer removing questionable content over adding caveats around it.
+- Ask before touching each file; pause for review between files.
+- Encode defaults only when backed by usage or explicit user preference.
+- Prefer deletion over caveats.
 
-## File Roles
+## File roles
 
-- `SKILL.md`: trigger, core philosophy, verdict format, shape list, and instructions for when to load supporting files.
-- `references/`: conditional guidance, decision rules, evidence notes, and non-copyable explanation.
-- `assets/`: copyable templates or static resources that may be filled in or trimmed for a real project.
-- `README.md`: short human-facing summary only.
+| File | Role |
+| ------ | ------ |
+| `SKILL.md` | Trigger, shapes, verdict format, reference loading |
+| `references/definitions.md` | Canonical terms — single owner |
+| `references/*.md` | Conditional rules per boundary or folder type |
+| `assets/` | Copyable templates |
+| `README.md` | Short human summary |
 
-If the same rule appears in multiple places, choose one owner and point to it from the others.
+One owner per rule. Elsewhere: use the term or shape, do not restate the rule.
 
-## Context Discipline
+## Wording
 
-- Do not include personal names, chat history, temporary task context, or source-specific proper nouns in generic guidance.
-- Do not copy details from one project into the skill unless they are being used as clearly labeled evidence.
-- Do not mention external skills, sources, tools, or standards unless the file explains exactly why the agent needs them.
-- Examples should use placeholders unless a section is explicitly documenting evidence from a real project.
+- **Opinionated and explicit** on structure — naming patterns, layouts, and boundaries should be stated clearly.
+- **Match depth to the reference** — shared files stay short; folder-type references with workflow rules stay fully explicit.
+- **Modular ownership** — `SKILL.md` routes and summarizes; each reference owns the detailed rules for its folder type.
+- **Preserve crafted phrasing** — when updating a mature reference, change only the wording required by the new rule.
+- **Definitions over lists** — terms live in `definitions.md`; prose uses placeholders, not real project names.
+- **Positive rules** — state what to do. Avoid negative-anchor phrasing that names the failure mode (see anti-backrooms-design).
+- **Concise** — if two sections agree, keep one.
+- **Explicit where it matters** — file roles, Git actions, shape trees, template paths.
 
-## Before Finishing
+## Navigation
 
-- Confirm `SKILL.md` tells agents exactly when to read each reference or use each asset.
-- Remove generic advice an agent already knows.
-- Check for context leaks and unnecessary proper nouns.
-- Update `metadata.version` when behavior changes.
+Reference loading paths belong in `SKILL.md` once. Other files assume the agent already loaded what that section requires.
+
+## Before finishing
+
+- Reference loading covers each `references/` file.
+- Terms in references appear in `definitions.md`.
+- Bump `metadata.version` when behavior changes.

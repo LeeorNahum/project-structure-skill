@@ -11,7 +11,7 @@ Project Name/
     └── <Canonical Firmware Repo>/
 ```
 
-Inside a standalone PlatformIO firmware repo, a common shape is:
+Inside a canonical deliverable PlatformIO firmware repo, a common shape is:
 
 ```text
 <canonical-firmware-repo>/
@@ -28,7 +28,7 @@ For a minimal PlatformIO `.gitignore`, start from `assets/gitignore-firmware-pla
 
 Ask before:
 
-- changing board targets or upload defaults
-- changing hardware selectors, pin maps, or firmware identity
-- moving firmware into or out of its own repo
-- adding generated build folders to Git
+- Changing board targets or upload defaults
+- Changing hardware selectors, pin maps, or firmware identity
+- Moving firmware into or out of its own repo
+- Adding generated build folders to Git

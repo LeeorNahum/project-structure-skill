@@ -1,12 +1,8 @@
 # Workspace Containers
 
-A workspace container is a human-readable folder that helps the user live inside a project with many surfaces. It may contain real repos, local-only folders, assets, exports, notes, and installed agent skills.
+A **workspace container** holds mixed local work, optional nested repos, and sometimes installed agent skills.
 
-The container can be Git-initialized without becoming a publishable project. Treat that Git repo as a local control plane.
-
-## Default Strategy
-
-Use this pattern when the user opens a main folder that contains many subfolders and wants skills installed as submodules:
+## Layout
 
 ```text
 Project Name/
@@ -18,50 +14,28 @@ Project Name/
     └── skills/
 ```
 
-Default behavior:
+## Defaults
 
-- initialize Git locally only
-- add no remote by default
-- install shared local skills under `.agents/skills/` only when the project needs local skill files
-- track `.gitmodules`, skill submodule gitlinks, and a few root operating docs
-- ignore contained project folders by default
-- do not initialize Git on surface folders such as `Brand/`, `Planning/`, or `Research/` unless the user explicitly asks
-- let serious **atomic** subfolders own their own Git repos when justified — e.g. `Brand/Assets/<Project> Icon/`, not `Brand/` itself
-- add content folders only when they hold real project material
+- Git locally only; no remote by default
+- Skills under `.agents/skills/` when needed
+- Track root operating docs, `.gitmodules`, and skill gitlinks
+- Ignore contained work folders by default
+- No Git on organizer folders unless the user asks
+- Canonical deliverable folders may own their own repos when justified
+- Add folders only when they hold real content
 
-When creating the parent `.gitignore`, start from `assets/gitignore-workspace-container.template`. The template uses `!.agents/skills/**` so skill submodule gitlinks are not blocked by the deny-all `*` rule.
+`.gitignore`: start from `assets/gitignore-workspace-container.template`.
 
-## Local Control Plane Git
+## Root docs
 
-Use a local control-plane repo when:
+- `README.md` — human-facing, short, stable
+- `AGENTS.md` — agent navigation, skills, Git posture
+- `TASKS.md` — only if this container owns durable execution state
 
-- skills need to be installed as Git submodules
-- the container needs `AGENTS.md`, `README.md`, or root standards
-- the user wants Cursor/VSCode open at the main folder
-- contained subprojects are not all meant to be committed together
+Do not turn root docs into a folder inventory.
 
-Do not add a GitHub remote unless the user explicitly wants the container's root standards synced or backed up. If a remote is added, default to private and keep the deny-all ignore shape.
+## Skills
 
-## Root Docs
+Submodule installs require a Git repo at the container root. That does not make child folders publishable.
 
-Use root docs sparingly:
-
-- `AGENTS.md`: how agents should navigate the workspace, which skills are installed, and what must stay local
-- `README.md`: canonical purpose, surfaces, current active subprojects, setup, and non-goals
-- `TASKS.md`: only if the container itself owns durable execution state
-
-Do not turn the root docs into an exhaustive inventory. Link to subproject docs instead.
-
-## Skill Installation
-
-For local skill installs, prefer `.agents/skills/<skill-name>/`.
-
-If installed as submodules, the container must be a Git repo. This does not mean the container should publish its child folders.
-
-Do not install a skill repo just because a raw URL or explicit user-provided reference was enough for the current task.
-
-If nested subprojects also need the skill, prefer one of these:
-
-- install the skill at the container root when the whole workspace should inherit it
-- install a subproject-specific skill inside that subproject when the guidance only applies there
-- avoid duplicate installs unless the child repo must work independently outside the container
+Install at the container when the whole workspace inherits the skill; install in a subproject when the guidance is local to that repo only.

@@ -24,7 +24,7 @@ Do not force a monorepo for a single small app. Use `apps/` and `packages/` only
 
 Ask before:
 
-- creating a deployable repo or remote
-- adding root env files
-- choosing a production domain, provider, or public app name
-- moving web code under a larger product root
+- Creating a deployable repo or remote
+- Adding root env files
+- Choosing a production domain, provider, or public app name
+- Moving web code under a larger product root

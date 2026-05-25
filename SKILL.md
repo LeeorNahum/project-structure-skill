@@ -1,9 +1,9 @@
 ---
 name: project-structure
-description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, artifact snapshot, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
+description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.2.0"
+  version: "2.4.0"
 ---
 
 # Project Structure
@@ -18,6 +18,7 @@ Use the user's actual project boundary, not the folder that happened to be open.
 
 Read the relevant reference before acting:
 
+- Read `references/definitions.md` first when classifying folders, naming, or choosing doc roles.
 - Read `references/workspace-containers.md` when a main folder contains many subfolders/repos, when installing skills as submodules, or when deciding whether the container itself should be Git-controlled.
 - Read `references/repo-boundaries.md` before initializing Git, adding a remote, naming a repo, or deciding whether a subfolder deserves GitHub.
 - Read the matching folder reference before creating one of these folders: `references/folder-planning.md`, `references/folder-web.md`, `references/folder-firmware.md`, `references/folder-devices.md`, or `references/folder-brand.md`.
@@ -55,7 +56,7 @@ Project Name/
 
 Default strategy: initialize Git locally only so submodule-installed skills can exist, add no remote by default, and use a deny-all `.gitignore` that tracks only root operating docs, `.gitmodules`, and skill submodule entries.
 
-Do not treat contained folders as publishable just because the container is Git-controlled. Serious subprojects can be their own repos when they pass the canonical naming and publishing boundary.
+Do not treat contained folders as publishable just because the container is Git-controlled. A nested canonical deliverable folder may live inside an organizer and still become its own repo when justified.
 
 Do not create content folders in the container example just to suggest future structure. Add folders only after the project proves it needs them.
 
@@ -75,34 +76,11 @@ Only add folders that hold real files now. Skip `TASKS.md`, `docs/`, `decisions/
 
 If unsure whether a project is a planning repo or a minimal artifact repo, ask before creating structure. Default to minimal when the immediate goal is "make/publish/install this thing."
 
-### Small Planning Repo
-
-Use for tiny, early, or spec-only projects.
-
-```text
-Project-Plan/
-├── AGENTS.md
-├── README.md
-└── TASKS.md
-```
-
-Graduate when decisions, meetings, code, hardware, or media no longer fit cleanly in root files.
-
 ### Planning Repo
 
 Use when the project is still being designed but already has product, software, hardware, or decision material.
 
-```text
-Project-Plan/
-├── AGENTS.md
-├── README.md
-├── TASKS.md
-├── docs/
-│   └── <topic>/
-└── meetings/
-```
-
-`README.md` owns project purpose, strategy, scope, and human-readable context. `TASKS.md` owns executable state. Topic folders under `docs/` should be created, renamed, split, merged, or removed as the plan evolves.
+`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. Read `references/folder-planning.md` for the exact layout and maintenance rules.
 
 ### Full Project Root
 
@@ -118,7 +96,7 @@ Project Name/
 └── Brand/
 ```
 
-Only create folders that correspond to real surfaces. Keep planning, code, devices, brand assets, and generated artifacts separate. Give serious subprojects their own `AGENTS.md`.
+Only create folders that correspond to real surfaces. Keep planning, code, devices, brand assets, and generated artifacts separate. Give serious canonical deliverable folders their own `AGENTS.md`.
 
 If the root mainly exists to hold subprojects and shared agent standards, prefer the workspace container shape above.
 
@@ -159,45 +137,26 @@ Add `TASKS.md` only when the repo needs durable executable state.
 
 When PlatformIO hardware selectors, board environments, local provisioning values, or firmware version flags matter, also use the firmware-specific repository skill if available.
 
-### Artifact Snapshot
-
-Use for posters, slides, screenshots, CAD exports, 3D prints, media packets, and event deliverables.
-
-```text
-Artifact Name YYYY-MM-DD/
-├── README.md
-├── source/
-├── exports/
-├── references/
-├── screenshots/
-├── photos/
-└── notes.md
-```
-
-Record source files, final export format, public-safe caption/description, and missing media or privacy constraints.
-
 ## Naming
 
-- Local project roots can be human-readable: `Project Name`.
-- Workspace containers can use the canonical human name and hold mixed local work.
-- Surface folders (`Brand/`, `Planning/`, `Research/`) organize work locally and are not remote candidates by themselves.
-- Atomic folders carry the canonical project/product name plus a specific scope: `Audiote Icon/`, `Audiote-Plan/`, `audiote-website/`.
-- Code repos should use deployable/package slugs when they are standalone packages or deployables: `project-website`, `project-firmware`, `project-skill`.
-- Planning repos use `Project-Plan`.
-- Do not date-stamp main directories, surface folders, or their direct subdirectories. Use **Artifact Snapshot** folders when a dated deliverable packet must be preserved.
-- Avoid names that only describe a temporary tool, class, assignment, sprint, or process unless that is truly the artifact's identity.
+Classify with defined terms. Git and remote rules are in `repo-boundaries.md`.
+
+- Human-readable local roots: `Project Name`
+- Deployable code slugs: `project-<surface>`
+- Planning repos live under `Planning/Project-Plan/`
+- Avoid names that describe temporary process unless that is the artifact's identity
 
 ## First Files
 
 Every non-trivial project starts with the minimum files that fit its shape.
 
-- `AGENTS.md`: durable agent operating rules for any serious repo
-- `README.md`: canonical purpose, scope, users, non-goals, setup, and human-readable project context
-- `TASKS.md`: executable state for planning repos or larger active projects, not mandatory for every code repo
+- `AGENTS.md` — agent operating rules
+- `README.md` — human-facing summary
+- `TASKS.md` — executable state when the repo needs durable task tracking
 
-Do not duplicate facts across files. Update the owning file and link to it.
+One owner per fact. Do not duplicate rules across files.
 
-For workspace containers, `AGENTS.md` should explain navigation, installed skills, repo boundaries, and local-only expectations. It should not become a diary or an inventory dump.
+For workspace containers, `AGENTS.md` covers navigation, skills, and Git posture — not a folder inventory.
 
 ## First Three Tasks
 
@@ -216,3 +175,4 @@ For workspace containers, `AGENTS.md` should explain navigation, installed skill
 - Do not add a GitHub remote just because Git exists locally.
 - Do not publish non-canonical scratch folders unless the user explicitly confirms the exception.
 - Do not duplicate the same standard across multiple files; put the durable rule in one owner and link to it.
+- Ask before git commit, push, or GitHub release unless the user already approved that specific action.
