@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.4.0"
+  version: "2.6.0"
 ---
 
 # Project Structure
@@ -80,7 +80,7 @@ If unsure whether a project is a planning repo or a minimal artifact repo, ask b
 
 Use when the project is still being designed but already has product, software, hardware, or decision material.
 
-`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. Read `references/folder-planning.md` for the exact layout and maintenance rules.
+`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. The active plan lives in `Docs/` using topic folders, one-topic-per-file markdown, and required planning frontmatter. Optional `Deprecated/` sits beside `Docs/` for reference-only archives. Read `references/folder-planning.md` for the exact layout and maintenance rules.
 
 ### Full Project Root
 
@@ -143,20 +143,22 @@ Classify with defined terms. Git and remote rules are in `repo-boundaries.md`.
 
 - Human-readable local roots: `Project Name`
 - Deployable code slugs: `project-<surface>`
-- Planning repos live under `Planning/Project-Plan/`
+- Planning repos live under `Planning/Project-Plan/` with active plan content in `Docs/`
 - Avoid names that describe temporary process unless that is the artifact's identity
 
 ## First Files
 
 Every non-trivial project starts with the minimum files that fit its shape.
 
-- `AGENTS.md` — agent operating rules
-- `README.md` — human-facing summary
-- `TASKS.md` — executable state when the repo needs durable task tracking
+- `AGENTS.md` - agent operating rules
+- `README.md` - human-facing summary
+- `TASKS.md` or a planning task document - executable state when the shape needs durable task tracking
 
 One owner per fact. Do not duplicate rules across files.
 
-For workspace containers, `AGENTS.md` covers navigation, skills, and Git posture — not a folder inventory.
+For workspace containers, `AGENTS.md` covers navigation, skills, and Git posture, not a folder inventory.
+
+For planning repos, executable state usually belongs under `Docs/` unless the user explicitly wants root task tracking.
 
 ## First Three Tasks
 

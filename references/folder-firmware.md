@@ -2,7 +2,7 @@
 
 Use `Firmware/` when a project root contains embedded firmware as a serious surface, especially when the firmware may become its own repo.
 
-Observed pattern:
+## Observed Pattern
 
 ```text
 Project Name/
@@ -11,13 +11,14 @@ Project Name/
     └── <Canonical Firmware Repo>/
 ```
 
+## PlatformIO Repo Shape
+
 Inside a canonical deliverable PlatformIO firmware repo, a common shape is:
 
 ```text
 <canonical-firmware-repo>/
 ├── platformio.ini
 ├── hardware/
-├── include/
 ├── src/
 └── lib/
 ```
@@ -26,7 +27,7 @@ Use the repo's existing firmware conventions before introducing new ones. If the
 
 For a minimal PlatformIO `.gitignore`, start from `assets/gitignore-firmware-platformio.template`, then adjust only for the repo's actual generated files and intentionally tracked editor settings.
 
-Ask before:
+## Ask Before
 
 - Changing board targets or upload defaults
 - Changing hardware selectors, pin maps, or firmware identity

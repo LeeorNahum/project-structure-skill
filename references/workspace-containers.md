@@ -2,7 +2,7 @@
 
 A **workspace container** holds mixed local work, optional nested repos, and sometimes installed agent skills.
 
-## Layout
+## Workspace Container Shape
 
 ```text
 Project Name/
@@ -26,11 +26,11 @@ Project Name/
 
 `.gitignore`: start from `assets/gitignore-workspace-container.template`.
 
-## Root docs
+## Root Docs
 
-- `README.md` — human-facing, short, stable
-- `AGENTS.md` — agent navigation, skills, Git posture
-- `TASKS.md` — only if this container owns durable execution state
+- `README.md` - human-facing, short, stable
+- `AGENTS.md` - agent navigation, skills, Git posture
+- `TASKS.md` - only if this container owns durable execution state
 
 Do not turn root docs into a folder inventory.
 

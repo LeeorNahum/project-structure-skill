@@ -2,7 +2,7 @@
 
 Use `Devices/` when a project root contains one or more hardware/device design repos or device-specific source folders.
 
-Observed pattern:
+## Observed Pattern
 
 ```text
 Project Name/
@@ -18,7 +18,7 @@ Do not invent deeper device subfolders before the project shows a need. Source f
 
 For a KiCad PCB repo `.gitignore`, start from `assets/gitignore-kicad-pcb.template`. Before ignoring an unfamiliar physical-design file extension, verify whether it is source, cache, or deliverable.
 
-Ask before:
+## Ask Before
 
 - Turning a device folder into a GitHub repo
 - Renaming a device or board folder

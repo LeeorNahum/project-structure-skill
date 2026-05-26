@@ -1,4 +1,4 @@
-# project-structure-skill
+# project-structure
 
 `project-structure` helps choose the right workspace, repo, or folder shape before a project accumulates confusing structure.
 
