@@ -21,6 +21,10 @@ Local Git outside a control plane is uncommon. Use it when history, collaboratio
 
 Suggest a remote only when the folder is a **canonical deliverable folder**, has a durable purpose, and the user wants sync, collaboration, CI, releases, or backup.
 
+The folder name must be standalone-meaningful as a GitHub repo name without extra context. Generic names like `Assets`, `Docs`, `Config`, or single category words that describe a role rather than a deliverable are not standalone-meaningful and should not get a remote. Names that include the project identity, surface, and optionally a type are standalone-meaningful. Names that are generic category words are not.
+
+The local folder name and the GitHub repo name must match. If they would differ, either rename the local folder to match or do not create the remote.
+
 Do not suggest a remote because the parent is Git-controlled, the folder contains files, or the agent wants somewhere to commit.
 
 ## Nested Repos

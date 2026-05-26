@@ -9,11 +9,11 @@ Use a separate web/app repo when the web surface has its own deploy, package man
 ```text
 Project Name/
 └── Web/
-    └── <canonical-web-repo>/
+    └── <Project>-Web/
 ```
 
 ```text
-<canonical-web-repo>/
+<Project>-Web/
 ├── AGENTS.md
 ├── README.md
 ├── package.json

@@ -7,8 +7,7 @@ Use `Firmware/` when a project root contains embedded firmware as a serious surf
 ```text
 Project Name/
 └── Firmware/
-    ├── AGENTS.md
-    └── <Canonical Firmware Repo>/
+    └── <Project>-Firmware/
 ```
 
 ## PlatformIO Repo Shape

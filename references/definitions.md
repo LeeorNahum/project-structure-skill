@@ -35,3 +35,7 @@ In a planning repo, optional sibling folder next to `Docs/` that preserves super
 ## Title Case
 
 Capitalization style for planning folder and markdown filenames. Capitalize principal words, including the first and last words. Lowercase articles, short prepositions, and common conjunctions unless they are first or last. See [Title case](https://en.wikipedia.org/wiki/Title_case).
+
+## Title-Dash-Case
+
+Capitalization style for canonical deliverable folder names and repo folder names that use multiple words joined by hyphens. Capitalize the first letter of each word segment. Examples: `My-App`, `Project-Firmware`. Use this for the filesystem folder name and repo title only. Do not use it for npm package names, import paths, source directories, or code identifiers, which remain kebab-case.

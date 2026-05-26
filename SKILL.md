@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.6.0"
+  version: "2.8.0"
 ---
 
 # Project Structure
@@ -98,6 +98,8 @@ Project Name/
 
 Only create folders that correspond to real surfaces. Keep planning, code, devices, brand assets, and generated artifacts separate. Give serious canonical deliverable folders their own `AGENTS.md`.
 
+Organizer folders (`Web/`, `Planning/`, `Firmware/`, `Devices/`, `Brand/`, etc.) are bare category containers. They hold canonical deliverable folders only. Do not add files, docs, Git, or any other content to an organizer folder unless the user explicitly asks.
+
 If the root mainly exists to hold subprojects and shared agent standards, prefer the workspace container shape above.
 
 ### Web/App Monorepo
@@ -142,9 +144,12 @@ When PlatformIO hardware selectors, board environments, local provisioning value
 Classify with defined terms. Git and remote rules are in `repo-boundaries.md`.
 
 - Human-readable local roots: `Project Name`
-- Deployable code slugs: `project-<surface>`
+- Canonical deliverable folders and repo folder names: `Project-Surface` (Title-Dash-Case)
+- Deployable code slugs (npm package names, import paths, and similar code identifiers): `project-surface` (kebab-case)
 - Planning repos live under `Planning/Project-Plan/` with active plan content in `Docs/`
 - Avoid names that describe temporary process unless that is the artifact's identity
+
+Title-Dash-Case applies to the folder name as it appears in the project structure: the filesystem folder and repo title. It does not apply to package names in `package.json`, source directories like `src/` or `apps/`, import paths, or any code. A folder named `My-App` and a package named `my-app` inside it are both correct.
 
 ## First Files
 

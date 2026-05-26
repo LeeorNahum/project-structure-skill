@@ -7,7 +7,7 @@ Use `Devices/` when a project root contains one or more hardware/device design r
 ```text
 Project Name/
 └── Devices/
-    └── <Canonical Device Or Board Repo>/
+    └── <Project>-<Device>/
 ```
 
 The child folder can be its own Git repo when it is a real canonical deliverable device artifact. Do not make the parent root track the child repo's files by accident.
