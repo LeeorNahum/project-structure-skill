@@ -9,7 +9,7 @@ Most folders should have **no Git**. Do not init Git because a folder has files 
 Before init, remote, rename, or publish: classify the folder using defined terms in `definitions.md`.
 
 | Kind | Git | Remote |
-|------|-----|--------|
+| ---- | --- | ------ |
 | Organizer folder | No | No |
 | Canonical deliverable folder | Only when justified | Only if user requests |
 | Workspace container | Local control plane | Rare; ask first |
@@ -32,6 +32,7 @@ Do not suggest a remote because the parent is Git-controlled, the folder contain
 - Parent control plane tracks root docs, `.gitmodules`, and skill gitlinks, not child contents.
 - Child repos track their own source and release artifacts.
 - Child repos that must work alone get their own `AGENTS.md`.
+- Child repo submodules belong to the child repo's `.gitmodules`, not the parent control plane's `.gitmodules`.
 
 ## Before Acting
 

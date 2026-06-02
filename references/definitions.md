@@ -16,9 +16,11 @@ A folder whose name describes a **category**, not one deliverable. Too broad to 
 
 ## Canonical Deliverable Folder
 
-A folder whose name is specific enough to be understood as a repository title, usually `<Project> <Deliverable>` or a deployable slug. It is the canonical home for one shippable, versionable, or durable unit.
+A folder whose name is specific enough to be understood as a repository title, usually `<Project>-<Deliverable>` in Title-Dash-Case or a deployable slug. It is the canonical home for one shippable, versionable, or durable unit.
 
 It may live inside an organizer folder. Being repo-ready by name does not mean it must sit at the workspace root or receive Git automatically.
+
+Use Title-Dash-Case for canonical deliverable folders that are or may become Git repos so the local folder name can match the GitHub repo name.
 
 ## Shape
 

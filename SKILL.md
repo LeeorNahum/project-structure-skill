@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.8.0"
+  version: "2.9.0"
 ---
 
 # Project Structure
@@ -14,13 +14,16 @@ Prefer the smallest durable shape that can ship the project. Do not create plann
 
 Use the user's actual project boundary, not the folder that happened to be open. A main workspace folder can be a local control plane for many subprojects without being a publishable repo itself.
 
+Infer the boundary from the task, current folder name, existing repo evidence, organizer folders, and user wording. When the boundary is a root with surfaces, keep the root and place canonical deliverable folders under the appropriate organizers.
+
 ## Reference Loading
 
 Read the relevant reference before acting:
 
 - Read `references/definitions.md` first when classifying folders, naming, or choosing doc roles.
-- Read `references/workspace-containers.md` when a main folder contains many subfolders/repos, when installing skills as submodules, or when deciding whether the container itself should be Git-controlled.
+- Read `references/workspace-containers.md` when a main folder contains many subfolders/repos or when deciding whether the container itself should be Git-controlled.
 - Read `references/repo-boundaries.md` before initializing Git, adding a remote, naming a repo, or deciding whether a subfolder deserves GitHub.
+- Read `references/skill-installation.md` when installing local skills or deciding which repo owns skill submodules.
 - Read the matching folder reference before creating one of these folders: `references/folder-planning.md`, `references/folder-web.md`, `references/folder-firmware.md`, `references/folder-devices.md`, or `references/folder-brand.md`.
 
 Use `assets/` only for copyable templates or static resources that are intentionally meant to become files in another project. If an asset is not a close fit, ask before using it.
@@ -60,7 +63,7 @@ Do not treat contained folders as publishable just because the container is Git-
 
 Do not create content folders in the container example just to suggest future structure. Add folders only after the project proves it needs them.
 
-### Minimal Artifact Or Package Repo
+### Standalone Artifact Or Package Repo
 
 Use for a single releaseable artifact such as a theme, preset, config package, template, small asset pack, downloadable zip, or other repo where the artifact is the product.
 
@@ -74,7 +77,7 @@ project-name/
 
 Only add folders that hold real files now. Skip `TASKS.md`, `docs/`, `decisions/`, `resources/`, and `.gitkeep` files unless the user asked for them or the artifact already needs them.
 
-If unsure whether a project is a planning repo or a minimal artifact repo, ask before creating structure. Default to minimal when the immediate goal is "make/publish/install this thing."
+If unsure whether the current folder is the artifact boundary or part of a larger root, ask before creating structure. Default to this shape only when the immediate goal is to make, publish, or install the artifact itself.
 
 ### Planning Repo
 
@@ -177,7 +180,7 @@ For planning repos, executable state usually belongs under `Docs/` unless the us
 - Do not use a full project root for a tiny idea unless it has multiple real surfaces.
 - Do not collapse related-but-distinct products into one repo just because they share parts.
 - Keep shape decisions separate from domain implementation details.
-- If a project only needs one subfolder shape, use that shape directly instead of forcing a full product root.
+- Do not force a full project root around a single standalone deliverable. Do preserve a root when the task or existing structure implies organizer folders.
 - Do not over-apply this skill by scaffolding future folders. Structure should prove it is needed by holding real project content.
 - Do not add a GitHub remote just because Git exists locally.
 - Do not publish non-canonical scratch folders unless the user explicitly confirms the exception.

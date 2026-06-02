@@ -23,6 +23,7 @@ One owner per rule. Elsewhere: use the term or shape, do not restate the rule.
 ## Wording
 
 - **Opinionated and explicit** on structure: naming patterns, layouts, and boundaries should be stated clearly.
+- **IDE agnostic**: do not mention a specific editor, IDE, or agent host unless the file is explicitly about that host.
 - **Match depth to the reference**: shared files stay short; folder-type references with workflow rules stay fully explicit.
 - **Modular ownership**: `SKILL.md` routes and summarizes; each reference owns the detailed rules for its folder type.
 - **Preserve crafted phrasing**: when updating a mature reference, change only the wording required by the new rule.
