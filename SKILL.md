@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.9.0"
+  version: "2.10.0"
 ---
 
 # Project Structure
@@ -83,7 +83,7 @@ If unsure whether the current folder is the artifact boundary or part of a large
 
 Use when the project is still being designed but already has product, software, hardware, or decision material.
 
-`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. The active plan lives in `Docs/` using topic folders, one-topic-per-file markdown, and required planning frontmatter. Optional `Deprecated/` sits beside `Docs/` for reference-only archives. Read `references/folder-planning.md` for the exact layout and maintenance rules.
+`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. The active plan lives in `Docs/` using topic folders by default, one-topic-per-file markdown, and required planning frontmatter. Optional `Deprecated/` sits beside `Docs/` for reference-only archives. Read `references/folder-planning.md` for the exact layout and maintenance rules.
 
 ### Full Project Root
 

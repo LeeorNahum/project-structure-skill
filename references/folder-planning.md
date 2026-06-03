@@ -12,20 +12,23 @@ Planning/
     ├── AGENTS.md
     ├── README.md
     ├── Docs/
-    │   ├── <Document>.md
-    │   ├── <Document>.md
-    │   └── <Topic>/
-    │       └── <Document>.md
+    │   ├── <Topic>/
+    │   │   ├── <Document>.md
+    │   │   └── <Document>.md
+    │   ├── <Topic>/
+    │   │   └── <Document>.md
     └── Deprecated/          (optional; only when old material must be kept)
-        ├── <Archived Document>.md
-        ├── <Archived Document>.md
-        └── <Archived Topic>/
-            └── <Archived Document>.md
+        ├── <Archived Topic>/
+        │   ├── <Archived Document>.md
+        │   └── <Archived Document>.md
+        ├── <Archived Topic>/
+        │   └── <Archived Document>.md
+        └── <Archived Document>.md
 ```
 
 `Project-Plan/` is the canonical deliverable folder. `README.md` owns project purpose, strategy, scope, and human-readable context. Topic folders under `Docs/` should be created, renamed, split, merged, or removed as the plan evolves.
 
-Planning is encouraged to be broad. It can have many folders, subfolders, and markdown files when the project needs them. The constraint is not the number of files; the constraint is whether each file has a clear purpose, stays concise, and avoids duplicating facts that can drift.
+Planning is encouraged to be broad. It can have many folders, subfolders, and markdown files when the project needs them. For non-trivial plans, default to topic folders under `Docs/` instead of loose top-level docs. The constraint is not the number of files; the constraint is whether each file has a clear purpose, stays concise, and avoids duplicating facts that can drift.
 
 ## `Docs/` Is the Active Plan
 
@@ -35,7 +38,7 @@ Do not put planning markdown in the repo root beyond `AGENTS.md` and `README.md`
 
 `Deprecated/` is a sibling of `Docs/`, not nested inside it. Add it only when superseded material must be preserved for reference. Agents must treat `Deprecated/` as non-guidance and ignore it for implementation unless the user explicitly asks for historical context.
 
-Create any topic folders and subfolders that will have real files now, but do not treat the first folder layout as permanent. Planning should always be freely reorganized as understanding improves and the project evolves. Rename, split, merge, or remove them as the plan evolves.
+Create topic folders and subfolders that will have real files now, but do not treat the first folder layout as permanent. Planning should always be freely reorganized as understanding improves and the project evolves. Rename, split, merge, or remove them as the plan evolves.
 
 ## Naming Conventions
 
@@ -70,6 +73,8 @@ Keep frontmatter in sync with the file:
 ## One Topic Per File
 
 Prefer more markdown files over fewer combined files.
+
+For non-trivial planning repos, prefer `Docs/<Topic>/<Document>.md` over `Docs/<Document>.md`. Loose files directly under `Docs/` are acceptable only for tiny plans with one or two active documents, or for a temporary index that clearly earns its place.
 
 Create a new markdown file when a topic is distinct enough to implement, review, or update on its own.
 
