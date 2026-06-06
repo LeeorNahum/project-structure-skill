@@ -22,13 +22,8 @@ Inside a canonical deliverable PlatformIO firmware repo, a common shape is:
 └── lib/
 ```
 
-Use the repo's existing firmware conventions before introducing new ones. If there is a dedicated firmware-configuration skill or repo-local `AGENTS.md`, follow that for board environments, hardware selectors, build flags, provisioning, and version constants.
+Use the repo's existing firmware conventions before introducing new ones.
 
 For a minimal PlatformIO `.gitignore`, start from `assets/gitignore-firmware-platformio.template`, then adjust only for the repo's actual generated files and intentionally tracked editor settings.
 
-## Ask Before
-
-- Changing board targets or upload defaults
-- Changing hardware selectors, pin maps, or firmware identity
-- Moving firmware into or out of its own repo
-- Adding generated build folders to Git
+This reference covers only creating the folder. For board environments, hardware selectors, build flags, versioning, library dependencies, provisioning, and local values, install and follow the [`firmware-repository-opinions`](https://github.com/LeeorNahum/firmware-repository-opinions-skill) skill. Expansion beyond creating the folder is owned by that skill.

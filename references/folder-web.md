@@ -22,9 +22,4 @@ Project Name/
 
 Do not force a monorepo for a single small app. Use `apps/` and `packages/` only when there are multiple deployables or shared packages that justify the split.
 
-## Ask Before
-
-- Creating a deployable repo or remote
-- Adding root env files
-- Choosing a production domain, provider, or public app name
-- Moving web code under a larger product root
+This reference covers only creating the folder. For deep web architecture, monorepo layout, rendering, routing, env contracts, deployment, and UI opinions, install and follow the [`web-repository-opinions`](https://github.com/LeeorNahum/web-repository-opinions-skill) skill. Expansion beyond creating the folder is owned by that skill.
