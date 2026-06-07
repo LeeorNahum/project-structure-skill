@@ -22,5 +22,3 @@ Reference material may be committed alongside final assets when it belongs to th
 - No Git on `Brand/` itself
 - Git on the brand deliverable folder only when the user requests it
 - Remote only when the folder name is standalone-meaningful on GitHub (see `repo-boundaries.md`)
-
-#remove me you idiot, NOT DONT ADD ASK
