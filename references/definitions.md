@@ -40,4 +40,4 @@ Capitalization style for planning folder and markdown filenames. Capitalize prin
 
 ## Title-Dash-Case
 
-Capitalization style for canonical deliverable folder names and repo folder names that use multiple words joined by hyphens. Capitalize the first letter of each word segment. Examples: `My-App`, `Project-Firmware`. Use this for the filesystem folder name and repo title only. Do not use it for npm package names, import paths, source directories, or code identifiers, which remain kebab-case.
+Capitalization style for canonical deliverable folder names and repo folder names that use multiple words joined by hyphens. Capitalize the first letter of each word segment. Use this for the filesystem folder name and repo title only. Do not use it for npm package names, import paths, source directories, or code identifiers, which remain kebab-case.

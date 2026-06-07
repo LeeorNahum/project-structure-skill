@@ -7,8 +7,10 @@ Use `Firmware/` when a project root contains embedded firmware as a serious surf
 ```text
 Project Name/
 └── Firmware/
-    └── <Project>-Firmware/
+    └── <Project-or-Surface>-Firmware/
 ```
+
+Use `<Project-or-Surface>-Firmware/` naming as the default pattern, following the same organizer/deliverable rule as elsewhere in this skill. Prefer the smallest standalone-meaningful firmware artifact name that matches the actual deliverable.
 
 ## PlatformIO Repo Shape
 

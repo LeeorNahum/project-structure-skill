@@ -9,16 +9,18 @@ Use a separate web/app repo when the web surface has its own deploy, package man
 ```text
 Project Name/
 └── Web/
-    └── <Project>-Web/
+    └── <Project-or-Surface>-Web/
 ```
 
 ```text
-<Project>-Web/
+<web-surface-repo>/
 ├── AGENTS.md
 ├── README.md
 ├── package.json
 └── src/ or app/
 ```
+
+Use `<Project-or-Surface>-Web/` naming as the default pattern, following the same organizer/deliverable rule as elsewhere in this skill. Prefer the smallest standalone-meaningful web surface name that fits the deliverable.
 
 Do not force a monorepo for a single small app. Use `apps/` and `packages/` only when there are multiple deployables or shared packages that justify the split.
 

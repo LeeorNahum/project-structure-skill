@@ -4,7 +4,6 @@ Rules for editing the **project-structure** skill. User-facing structure rules l
 
 ## Editing protocol
 
-- Ask before touching each file; pause for review between files.
 - Encode defaults only when backed by usage or explicit user preference.
 - Prefer deletion over caveats.
 

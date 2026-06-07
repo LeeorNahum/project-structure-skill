@@ -3,7 +3,7 @@ name: project-structure
 description: Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries.
 metadata:
   author: Leeor Nahum
-  version: "2.11.0"
+  version: "2.12.0"
 ---
 
 # Project Structure
@@ -83,7 +83,7 @@ If unsure whether the current folder is the artifact boundary or part of a large
 
 Use when the project is still being designed but already has product, software, hardware, or decision material.
 
-`Planning/` is the organizer. `Project-Plan/` is the canonical deliverable folder. The active plan lives in `Docs/` using topic folders by default, one-topic-per-file markdown, and required planning frontmatter. Optional `Deprecated/` sits beside `Docs/` for reference-only archives. Read `references/folder-planning.md` for the exact layout and maintenance rules.
+`Planning/` is the organizer. A planning repo lives directly under it as a canonical deliverable folder, usually ending in `-Plan`. The exact name should describe the planned surface or project. The active plan lives in `Docs/` using topic folders by default, one-topic-per-file markdown, and required planning frontmatter. Read `references/folder-planning.md` for the exact layout and maintenance rules.
 
 ### Full Project Root
 
@@ -149,10 +149,10 @@ Classify with defined terms. Git and remote rules are in `repo-boundaries.md`.
 - Human-readable local roots: `Project Name`
 - Canonical deliverable folders and repo folder names: `Project-Surface` (Title-Dash-Case)
 - Deployable code slugs (npm package names, import paths, and similar code identifiers): `project-surface` (kebab-case)
-- Planning repos live under `Planning/Project-Plan/` with active plan content in `Docs/`
+- Planning repos live under `Planning/` as canonical deliverable folders, usually ending in `-Plan`, with active plan content in `Docs/`
 - Avoid names that describe temporary process unless that is the artifact's identity
 
-Title-Dash-Case applies to the folder name as it appears in the project structure: the filesystem folder and repo title. It does not apply to package names in `package.json`, source directories like `src/` or `apps/`, import paths, or any code. A folder named `My-App` and a package named `my-app` inside it are both correct.
+Title-Dash-Case applies to the folder name as it appears in the project structure: the filesystem folder and repo title. It does not apply to package names in `package.json`, source directories like `src/` or `apps/`, import paths, or any code.
 
 ## First Files
 

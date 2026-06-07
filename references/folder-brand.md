@@ -6,23 +6,21 @@
 
 ```text
 Brand/
-└── <Project>-Brand/
+└── <Project-or-Surface>-Brand/
     ├── Icon/
     └── Logo/
 ```
 
-The canonical deliverable sits directly under `Brand/` using `<Project>-Brand/` naming, following the same organizer/deliverable pattern used throughout this skill.
+The canonical deliverable sits directly under `Brand/` using `<Project-or-Surface>-Brand/` naming as the default pattern, following the same organizer/deliverable rule as elsewhere in this skill. Prefer the smallest specific name that clearly identifies the branded surface or project.
 
-Subfolders inside `<Project>-Brand/` use short scoped names (`Icon/`, `Logo/`, `Colors/`, `Banners/`) since the project prefix is already carried by the parent.
+Subfolders inside the brand deliverable use short scoped names (`Icon/`, `Logo/`, `Colors/`, `Banners/`) since the project or brand surface identity is already carried by the parent.
 
-Reference material such as source PNGs or working files may be committed alongside final assets. Cleanup is a future commit judgment call, not a rule.
+Reference material may be committed alongside final assets when it belongs to the deliverable. Cleanup is a future commit judgment call, not a rule.
 
 ## Rules
 
 - No Git on `Brand/` itself
-- Git on `<Project>-Brand/` only when the user requests it
+- Git on the brand deliverable folder only when the user requests it
 - Remote only when the folder name is standalone-meaningful on GitHub (see `repo-boundaries.md`)
 
-## Ask Before
-
-Ask before renaming assets, splitting asset types into separate repos, or mixing unrelated brand assets into the same folder.
+#remove me you idiot, NOT DONT ADD ASK

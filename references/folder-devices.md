@@ -7,12 +7,12 @@ Use `Devices/` when a project root contains one or more hardware/device design r
 ```text
 Project Name/
 └── Devices/
-    └── <Project>-<Device>/
+    └── <Project-or-Device-Artifact>/
 ```
 
 The child folder can be its own Git repo when it is a real canonical deliverable device artifact. Do not make the parent root track the child repo's files by accident.
 
-Use the canonical product/device name in the child folder when the device artifact is meant to be repo-ready by name. Add revision or surface wording only when it clarifies the artifact's identity.
+Use a standalone-meaningful product, device, board, or hardware artifact name in the child folder when the device artifact is meant to be repo-ready by name. The child folder name is a placeholder pattern, not a rigid requirement. Add revision or surface wording only when it clarifies the artifact's identity.
 
 Do not invent deeper device subfolders before the project shows a need. Source files, libraries, vendor outputs, CAD files, or manufacturing packages should follow the actual tool and project evidence.
 
