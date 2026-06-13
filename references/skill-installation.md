@@ -4,7 +4,7 @@ Local skills are repo-scoped.
 
 Install skills under `.agents/skills/` in the repo whose agents should inherit the guidance.
 
-Use the source repo folder name as the installed folder name. If the source repo is named `example-skill`, install it as `.agents/skills/example-skill`.
+Read the skill's frontmatter `name` and install it at `.agents/skills/<name>/`. The local directory that directly contains `SKILL.md` must match `name` exactly. Remote repository naming does not determine the installed directory.
 
 When both a parent root and a nested canonical deliverable folder need skills, install skills separately in each repo. Each repo owns its own `.agents/skills/` folder and `.gitmodules`.
 
