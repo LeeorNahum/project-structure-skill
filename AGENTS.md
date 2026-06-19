@@ -19,6 +19,8 @@ Rules for editing the **project-structure** skill. User-facing structure rules l
 
 One owner per rule. Elsewhere: use the term or shape, do not restate the rule.
 
+When a reference has a copyable asset, the reference owns the decision and the asset owns the exact file bytes. The reference points to the asset. It does not restate the exact bytes.
+
 ## Wording
 
 - **Opinionated and explicit** on structure: naming patterns, layouts, and boundaries should be stated clearly.

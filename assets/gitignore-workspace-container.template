@@ -5,6 +5,7 @@
 !.gitignore
 !.gitmodules
 !AGENTS.md
+!CLAUDE.md
 !README.md
 
 # Keep shared agent skills.

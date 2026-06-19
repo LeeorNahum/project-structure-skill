@@ -7,6 +7,7 @@ A **workspace container** holds mixed local work, optional nested repos, and som
 ```text
 Project Name/
 ├── AGENTS.md
+├── CLAUDE.md
 ├── README.md
 ├── .gitignore
 ├── .gitmodules
@@ -30,6 +31,7 @@ Project Name/
 
 - `README.md` - human-facing, short, stable
 - `AGENTS.md` - agent navigation, skills, Git posture
+- `CLAUDE.md` - Claude Code's native instruction file, equivalent to `AGENTS.md` for the Claude Code agent
 - `TASKS.md` - only if this container owns durable execution state
 
 Do not turn root docs into a folder inventory.
