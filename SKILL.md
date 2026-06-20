@@ -3,7 +3,7 @@ name: "project-structure"
 description: "Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries."
 metadata:
   author: "Leeor Nahum"
-  version: "2.14.0"
+  version: "2.15.0"
 ---
 
 # Project Structure
@@ -57,7 +57,7 @@ Project Name/
     └── skills/
 ```
 
-Default strategy: initialize Git locally only so submodule-installed skills can exist, add no remote by default, and use a deny-all `.gitignore` that tracks only root operating docs, `.gitmodules`, and skill submodule entries.
+Default strategy: initialize Git locally only so submodule-installed skills can exist. Use `main` as the only branch. No other branches are needed and none should be created. Commit the root routinely as a local checkpoint; never add a remote. Use a deny-all `.gitignore` that tracks only root operating docs, `.gitmodules`, and skill submodule entries.
 
 Do not treat contained folders as publishable just because the container is Git-controlled. A nested canonical deliverable folder may live inside an organizer and still become its own repo when justified.
 
@@ -100,6 +100,8 @@ Project Name/
 ```
 
 Only create folders that correspond to real surfaces. Keep planning, code, devices, brand assets, and generated artifacts separate. Give serious canonical deliverable folders their own `AGENTS.md`.
+
+Git posture for the root: use `main` as the only branch, commit routinely as a local checkpoint, and never add a remote. The root is a local control plane, not a publishable repo.
 
 Organizer folders (`Web/`, `Planning/`, `Firmware/`, `Devices/`, `Brand/`, etc.) are bare category containers. They hold canonical deliverable folders only. Do not add files, docs, Git, or any other content to an organizer folder unless the user explicitly asks.
 
