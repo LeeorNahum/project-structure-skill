@@ -29,7 +29,7 @@ When a reference has a copyable asset, the reference owns the decision and the a
 - **Modular ownership**: `SKILL.md` routes and summarizes; each reference owns the detailed rules for its folder type.
 - **Preserve crafted phrasing**: when updating a mature reference, change only the wording required by the new rule.
 - **Definitions over lists**: terms live in `definitions.md`; prose uses placeholders, not real project names.
-- **Positive rules**: state what to do. Avoid negative-anchor phrasing that names the failure mode (see anti-backrooms-design).
+- **Positive rules**: state what to do. Avoid negative-anchor phrasing that names the failure mode.
 - **Concise**: if two sections agree, keep one.
 - **Explicit where it matters**: file roles, Git actions, shape trees, template paths.
 

@@ -14,4 +14,4 @@ Planning/
 
 Use `<Project-or-Surface>-Plan/` naming as the default pattern, following the same organizer/deliverable rule as elsewhere in this skill. Prefer the smallest specific name that describes the actual planning deliverable and still ends in `-Plan`.
 
-This reference covers only creating the folder. For the full planning conventions, docs structure, Title Case naming, markdown frontmatter, one-topic-per-file discipline, and maintenance rules, install and follow the [`planning-repository-opinions`](https://github.com/LeeorNahum/planning-repository-opinions-skill) skill. Expansion beyond creating the folder is owned by that skill.
+This reference covers only creating the folder. For the full planning and durable-documentation conventions, docs structure, Title Case naming, markdown frontmatter, one-topic-per-file discipline, and maintenance rules, install and follow the [`context-directory-opinions`](https://github.com/LeeorNahum/context-directory-opinions-skill) skill. Expansion beyond creating the folder is owned by that skill.

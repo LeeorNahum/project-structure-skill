@@ -3,7 +3,7 @@ name: "project-structure"
 description: "Choose and normalize opinionated project, workspace, and repo structure. Always use when setting up, scaffolding, reorganizing, splitting, auditing, naming, git-initializing, or publishing a project; deciding whether a folder is a local workspace container, planning repo, full project root, web/app repo, firmware/library repo, or canonical publishable repo; installing local skills; or creating root docs and gitignore boundaries."
 metadata:
   author: "Leeor Nahum"
-  version: "2.16.0"
+  version: "2.16.2"
 ---
 
 # Project Structure
@@ -18,7 +18,7 @@ Infer the boundary from the task, current folder name, existing repo evidence, o
 
 ## Reference Loading
 
-This skill's decisions live in its references. Read every reference that touches the current task before acting; do not skim. Each reference owns its concept and the body of this skill only routes to it. If a reference might cover what you are about to classify, name, create, initialize, or install, read it rather than guess. Re-read the owning reference whenever a decision in its area comes back up.
+This skill's decisions live in its references. Read every reference that touches the current task before acting. Do not skim. Each reference owns its concept and the body of this skill only routes to it. If a reference might cover what you are about to classify, name, create, initialize, or install, read it rather than guess. Re-read the owning reference whenever a decision in its area comes back up.
 
 - Read `references/definitions.md` first when classifying folders, naming, or choosing doc roles.
 - Read `references/workspace-containers.md` when a main folder contains many subfolders or repos, when deciding whether the container should be Git-controlled, or when setting up root files and gitignore for a workspace container.
@@ -26,7 +26,7 @@ This skill's decisions live in its references. Read every reference that touches
 - Read `references/skill-installation.md` when installing local skills or deciding which repo owns skill submodules.
 - Read the matching folder reference before creating one of these folders: `references/folder-planning.md`, `references/folder-web.md`, `references/folder-firmware.md`, `references/folder-devices.md`, or `references/folder-brand.md`.
 
-Assets are copyable templates meant to become files in another project. Use them as the starting point when a reference points to one; if no reference points to an asset, ask before using it.
+Assets are copyable templates meant to become files in another project. Use them as the starting point when a reference points to one. If no reference points to an asset, ask before using it.
 
 ## Verdict First
 
@@ -57,7 +57,7 @@ Project Name/
     └── skills/
 ```
 
-Default strategy: initialize Git locally only so submodule-installed skills can exist. Use `main` as the only branch. No other branches are needed and none should be created. Commit the root routinely as a local checkpoint; never add a remote. Read `references/workspace-containers.md` for the full setup including gitignore.
+Default strategy: initialize Git locally only so submodule-installed skills can exist. Use `main` as the only branch. No other branches are needed and none should be created. Commit the root routinely as a local checkpoint. Never add a remote. Read `references/workspace-containers.md` for the full setup including gitignore.
 
 Do not treat contained folders as publishable just because the container is Git-controlled. A nested canonical deliverable folder may live inside an organizer and still become its own repo when justified.
 
@@ -87,7 +87,7 @@ Use when the project is still being designed but already has product, software, 
 
 ### Full Project Root
 
-Use when a project spans multiple serious surfaces such as web/app, firmware, devices, brand assets, planning, or public packaging. This is not hardware-only; hardware projects are just the clearest example.
+Use when a project spans multiple serious surfaces such as web/app, firmware, devices, brand assets, planning, or public packaging. This is not hardware-only. Hardware projects are just the clearest example.
 
 ```text
 Project Name/
@@ -186,5 +186,5 @@ For planning repos, executable state usually belongs under `Docs/` unless the us
 - Do not over-apply this skill by scaffolding future folders. Structure should prove it is needed by holding real project content.
 - Do not add a GitHub remote just because Git exists locally.
 - Do not publish non-canonical scratch folders unless the user explicitly confirms the exception.
-- Do not duplicate the same standard across multiple files; put the durable rule in one owner and link to it.
+- Do not duplicate the same standard across multiple files. Put the durable rule in one owner and link to it.
 - Ask before git commit, push, or GitHub release unless the user already approved that specific action.
